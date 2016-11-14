@@ -1,0 +1,10 @@
+
+******************************************************
+                CINEMAS CINEPLUX
+ boleto: 1 pelicula: batman VS Hulk
+ sala: 2, asiento: A2    $15.00
+ boleto: 2 pelicula: batman VS Hulk
+ sala: 2, asiento: A3    $15.00
+      total a pagar $30.00
+              GRACIAS POR SU COMPRA                   
+******************************************************
