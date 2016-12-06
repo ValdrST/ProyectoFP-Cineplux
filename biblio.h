@@ -4,6 +4,7 @@ void Consultar(FILE **archivo, char fichero[]);
 void CrearTicket(FILE **archivo, char fichero[]);
 int FilaANum(char*);
 int numAsiento(void);
+void mostrarTiempo(char output[128]);
 float PrecioCombos(int combo);
 void InicializarAsientos(int Asiento[6][6][20]);
 //inicio de funciones
@@ -143,4 +144,10 @@ void InicializarAsientos(int Asiento[6][6][20]){
 			}
 		}
 	}
+}
+void mostrarTiempo(char fechaHora[128])
+{
+	time_t tiempo = time(0);
+    struct tm *tlocal = localtime(&tiempo);
+    strftime(fechaHora,128,"%d/%m/%y %H:%M:%S",tlocal);
 }

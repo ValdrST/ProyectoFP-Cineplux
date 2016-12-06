@@ -2,6 +2,7 @@
  * Usar comando de compilacion gcc -Wall -std=c99
  * Usar codificacion UTF-8                      */
 #include <stdio.h>
+#include <time.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -43,6 +44,7 @@ int main(int argc, char **argv)//incio de funcion principal o main
 	char *cFila;//apuntador para argumento a funcion
 	char rec;//variable que recibe el valor de fin para los menus recursivos
 	char afirm;//variable que recibe el valor de afirmacion para imprimir el ticket
+	char fecha[128];
 	int menu, numBoletos, cont, sala, nCombos=0, Asiento[6][6][20], AsientosComprados=0, tempo;
 	InicializarAsientos(Asiento);
 	do{
@@ -230,7 +232,9 @@ int main(int argc, char **argv)//incio de funcion principal o main
 				for(cont=0;cont<nCombos;cont++){//imprime en pantalla los datos de los combos que se compraron
 					printf("\n Combo: %s $ %.2f",tickette.combo[cont],tickette.precioCombo[cont]);
 				}
-				printf("\n      total a pagar $%.2f",tickette.precioTotal);
+				printf("\n      total a pagar $%.2f\n",tickette.precioTotal);
+				mostrarTiempo(fecha);
+				printf("Fecha y hora de compra: %s\n",fecha);
 				printf("\n******************************************************");
 				printf("\n¿esta seguro de su compra?, si es asi pulse \"S\" para imprimir el ticket\n");
 				scanf("%s",&afirm);
@@ -248,6 +252,7 @@ int main(int argc, char **argv)//incio de funcion principal o main
 						fprintf(ticketto,"\n   %s $ %.2f",tickette.combo[cont],tickette.precioCombo[cont]);
 					}
 					fprintf(ticketto,"\n      total a pagar $%.2f",tickette.precioTotal);
+					fprintf(ticketto,"\n Fecha y hora de compra: %s",fecha);
 					fprintf(ticketto,"\n              GRACIAS POR SU COMPRA                   ");
 					fprintf(ticketto,"\n******************************************************");
 					fclose(ticketto);
